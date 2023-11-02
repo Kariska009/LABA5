@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Создаем массив фруктов (с разным регистром)
+        const fruits = ["яблоко", "Банан", "апельсин", "Груша", "вишня"];
+
+        // Функция для сортировки массива фруктов по алфавиту
+        function sortFruitsAlphabetically(fruitArray) {
+            return fruitArray.slice().sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+        }
+
+        // Функция для поиска фрукта в массиве (нерегистрозависимо)
+        function findFruitIndex(fruitArray, fruitName) {
+            const lowerCaseFruitName = fruitName.toLowerCase();
+            for (let i = 0; i < fruitArray.length; i++) {
+                if (fruitArray[i].toLowerCase() === lowerCaseFruitName) {
+                    return i;
+                }
+            }
+            return -1; // Возвращаем -1, если фрукт не найден
+        }
+
+        // Сортируем массив фруктов по алфавиту (нерегистрозависимо)
+        const sortedFruits = sortFruitsAlphabetically(fruits);
+
+        // Выводим отсортированный массив фруктов на экран
+        console.log("Фрукты, отсортированные по алфавиту:");
+        console.log(sortedFruits);
+
+        // Ищем индекс фрукта "бАНАН" (нерегистрозависимо)
+        const fruitToFind = "бАНАН";
+        const fruitIndex = findFruitIndex(sortedFruits, fruitToFind);
+
+        if (fruitIndex !== -1) {
+            console.log(`Фрукт "${fruitToFind}" найден по индексу ${fruitIndex}`);
+        } else {
+            console.log(`Фрукт "${fruitToFind}" не найден в массиве`);
+        }  
+    </script>
+</body>
+
+</html>

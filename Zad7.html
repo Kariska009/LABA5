@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Функция для создания массива из 5 случайных чисел
+        function createRandomArray5() {
+            const randomArray = [];
+            for (let i = 0; i < 5; i++) {
+                randomArray.push(Math.floor(Math.random() * 100) + 1);
+            }
+            return randomArray;
+        }
+
+        // Функция для объединения двух массивов без повторений
+        function mergeArraysWithoutDuplicates(arr1, arr2) {
+            const mergedArray = [...arr1, ...arr2];
+
+            // Используем Set для удаления повторяющихся элементов
+            const uniqueArray = Array.from(new Set(mergedArray));
+
+            return uniqueArray;
+        }
+
+        // Создаем два случайных массива
+        const randomArray1 = createRandomArray5();
+        const randomArray2 = createRandomArray5();
+
+        // Выводим их на экран
+        console.log("Массив 1:", randomArray1);
+        console.log("Массив 2:", randomArray2);
+
+        // Объединяем массивы без повторений
+        const mergedArray = mergeArraysWithoutDuplicates(randomArray1, randomArray2);
+
+        // Выводим объединенный массив
+        console.log("Объединенный массив без повторений:", mergedArray); 
+    </script>
+</body>
+
+</html>

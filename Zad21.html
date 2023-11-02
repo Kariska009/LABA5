@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Создаем массив аудиторий
+        const classrooms = [
+            { name: "Аудитория 101", seats: 15, faculty: "Факультет 1" },
+            { name: "Аудитория 102", seats: 20, faculty: "Факультет 2" },
+            { name: "Аудитория 103", seats: 12, faculty: "Факультет 3" },
+            { name: "Аудитория 104", seats: 18, faculty: "Факультет 1" },
+            { name: "Аудитория 105", seats: 14, faculty: "Факультет 2" }
+        ];
+
+        // Функция для сортировки аудиторий по количеству мест
+        function sortClassroomsBySeats(classroomArray) {
+            return classroomArray.slice().sort((a, b) => a.seats - b.seats);
+        }
+
+        // Сортируем аудитории по количеству мест
+        const sortedClassrooms = sortClassroomsBySeats(classrooms);
+
+        // Выводим отсортированный массив аудиторий на экран
+        console.log("Аудитории, отсортированные по количеству мест:");
+        sortedClassrooms.forEach(classroom => {
+            console.log(`Название: ${classroom.name}, Мест: ${classroom.seats}, Факультет: ${classroom.faculty}`);
+        });
+    </script>
+</body>
+
+</html>
